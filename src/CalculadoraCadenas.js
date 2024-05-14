@@ -6,8 +6,12 @@ function Calculadora_de_Cadena(cadena) {
 
     return cadena.split(',').reduce((resultado, segmento) => {
         if (segmento.includes('-')) {
-            const [inicio, fin] = segmento.split('-').map(Number);
-            for (let contador = inicio; contador <= fin; contador++) resultado += contador;
+            console.log(segmento);
+            let numero2tipo = segmento.split('-');
+            for (const numeroStr of numero2tipo) {
+                const numero = parseInt(numeroStr);
+                resultado += numero;
+            }
         } else {
             resultado += Number(segmento);
         }
