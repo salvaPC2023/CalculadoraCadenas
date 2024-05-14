@@ -13,4 +13,12 @@ describe("Calcular cadena", () => {
     expect(Calculadora_de_Cadena("4,4")).toEqual(8);
   });
 
+  it("Debe de devolver 10 para cadena con varios numeros", () => {
+    expect(Calculadora_de_Cadena("4,3,2,1")).toEqual(10);
+  });
+
+  it("Debe de devolver 9 para cadena con separada con , y -", () => {
+    expect(Calculadora_de_Cadena("1,2-3")).toEqual(6);
+  });
+
 });

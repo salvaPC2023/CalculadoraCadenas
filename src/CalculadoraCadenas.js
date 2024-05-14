@@ -1,17 +1,18 @@
 function Calculadora_de_Cadena(cadena) {
-    if(cadena === ""){
+    if (cadena === "") 
+    {
         return 0;
     }
 
-    let resultado = 0;
-    const numeros = cadena.split(',');
-
-    for (let i = 0; i < numeros.length; i++) {
-        resultado = resultado + parseInt(numeros[i]);
-        console.log(numeros[i])
-    }
-    
-    return resultado;
+    return cadena.split(',').reduce((resultado, segmento) => {
+        if (segmento.includes('-')) {
+            const [inicio, fin] = segmento.split('-').map(Number);
+            for (let contador = inicio; contador <= fin; contador++) resultado += contador;
+        } else {
+            resultado += Number(segmento);
+        }
+        return resultado;
+    }, 0);
 }
 
-  export default Calculadora_de_Cadena;
+export default Calculadora_de_Cadena;
