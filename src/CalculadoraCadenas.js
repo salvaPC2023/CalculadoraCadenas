@@ -1,13 +1,16 @@
 function Calculadora_de_Cadena(cadena) {
-    let resultado;
-    let numero = parseInt(cadena);
+    let resultado = 0;
     if(cadena == "")
     {
         resultado = 0;
     }
     else
     {
-        resultado = numero;
+        let numeros = cadena.split(',');
+        for (let i = 0; i < numeros.length; i++) {
+            resultado = resultado + parseInt(numeros[i]);
+            console.log(numeros[i])
+        }
     }
     return resultado;
   }

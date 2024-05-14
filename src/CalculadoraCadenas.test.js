@@ -9,4 +9,8 @@ describe("Calcular cadena", () => {
     expect(Calculadora_de_Cadena("4")).toEqual(4);
   });
 
+  it("Debe de devolver 8 para cadena con 4,4", () => {
+    expect(Calculadora_de_Cadena("4,4")).toEqual(8);
+  });
+
 });
