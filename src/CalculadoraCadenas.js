@@ -16,13 +16,32 @@ function Calculadora_de_Cadena(cadena) {
             let numero2tipo = segmento.split('-');
             for (const numeroStr of numero2tipo) {
                 const numero = parseInt(numeroStr);
-                resultado += numero;
+                if (NumeroMenorque1000(numero)) {
+                    resultado += numero;
+                }
+            }
+        } else if (segmento.includes(',')) {
+            let numero2tipo = segmento.split('-');
+            for (const numeroStr of numero2tipo) {
+                const numero = parseInt(numeroStr);
+                if (NumeroMenorque1000(numero)) {
+                    resultado += numero;
+                }
             }
         } else {
             resultado += Number(segmento);
         }
         return resultado;
     }, 0);
+}
+
+function NumeroMenorque1000(numero)
+{
+    let esmenor = false;
+    if(numero < 1000) {
+        esmenor = true;
+    }
+    return esmenor;
 }
 
 export default Calculadora_de_Cadena;

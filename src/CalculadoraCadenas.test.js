@@ -29,4 +29,8 @@ describe("Calcular cadena", () => {
     expect(Calculadora_de_Cadena("//[;] 8;12;4")).toEqual(24);
   });
 
+  it("Debe de devolver 1 para cadena con numeros mayores o igual que 1000", () => {
+    expect(Calculadora_de_Cadena("//[;] 1,1002;1001-1000")).toEqual(1);
+  });
+
 });
