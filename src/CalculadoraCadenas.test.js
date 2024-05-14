@@ -25,4 +25,8 @@ describe("Calcular cadena", () => {
     expect(Calculadora_de_Cadena("4,3-2,1-2")).toEqual(12);
   });
 
+  it("Debe de devolver 24 para cadena mas larga con delimitador especificado", () => {
+    expect(Calculadora_de_Cadena("//[;] 8;12;4")).toEqual(24);
+  });
+
 });
