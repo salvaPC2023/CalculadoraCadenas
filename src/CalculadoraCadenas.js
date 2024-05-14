@@ -2,16 +2,28 @@ function Calculadora_de_Cadena(cadena) {
     if (cadena === "") {
         return 0;
     }
-    let delimitador = ',';
+    let delimitador_Personalizado=',';
     let cadena_aux = cadena;
     if (cadena.startsWith("//"))
     {
-        delimitador = cadena[3];
+        delimitador_Personalizado='';
+        let contador = 3;
+
+        while (contador < cadena.length) {
+          if(cadena[contador] == ']')
+            {
+                contador = cadena.length;
+            }
+            else{
+                delimitador_Personalizado=delimitador_Personalizado+cadena[contador];
+                contador++;
+            }
+        }
         let Numero_cadena = (cadena.split(" "))[1];
         cadena_aux = Numero_cadena;
     }
 
-    return cadena_aux.split(delimitador).reduce((resultado, segmento) => {
+    return cadena_aux.split(delimitador_Personalizado).reduce((resultado, segmento) => {
         if (segmento.includes('-')) {
             let numero2tipo = segmento.split('-');
             for (const numeroStr of numero2tipo) {
@@ -21,7 +33,7 @@ function Calculadora_de_Cadena(cadena) {
                 }
             }
         } else if (segmento.includes(',')) {
-            let numero2tipo = segmento.split('-');
+            let numero2tipo = segmento.split(',');
             for (const numeroStr of numero2tipo) {
                 const numero = parseInt(numeroStr);
                 if (NumeroMenorque1000(numero)) {
@@ -29,7 +41,9 @@ function Calculadora_de_Cadena(cadena) {
                 }
             }
         } else {
-            resultado += Number(segmento);
+            if (NumeroMenorque1000(Number(segmento))){
+                resultado += Number(segmento);
+            }
         }
         return resultado;
     }, 0);

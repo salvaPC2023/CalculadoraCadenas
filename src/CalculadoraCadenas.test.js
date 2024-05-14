@@ -33,4 +33,8 @@ describe("Calcular cadena", () => {
     expect(Calculadora_de_Cadena("//[;] 1,1002;1001-1000")).toEqual(1);
   });
 
+  it("Debe de devolver 1 para cadena con numeros >= 1000 y con delimitador personalizado con cualquier longitud", () => {
+    expect(Calculadora_de_Cadena("//[***] 1***1002***1001***1000")).toEqual(1);
+  });
+
 });
